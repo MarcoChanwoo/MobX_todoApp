@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TodoStore from './TodoStore'
 
 interface TodoListProps {
@@ -6,6 +6,7 @@ interface TodoListProps {
 }
 
 const TodoList: React.FC<TodoListProps> = ({ todoStore }) => {
+  const [value, setValue] = useState<string>('');
   return (
     <div>
 
