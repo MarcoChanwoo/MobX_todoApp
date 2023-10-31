@@ -1,6 +1,11 @@
 import React from 'react'
+import TodoStore from './TodoStore'
 
-const TodoList: React.FC = ({ todoStore }) => {
+interface TodoListProps {
+  todoStore: TodoStore;
+}
+
+const TodoList: React.FC<TodoListProps> = ({ todoStore }) => {
   return (
     <div>
 
