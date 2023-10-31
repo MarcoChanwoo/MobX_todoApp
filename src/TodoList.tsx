@@ -1,17 +1,34 @@
 import React, { useState } from 'react'
 import TodoStore from './TodoStore'
+import { observer } from 'mobx-react';
 
 interface TodoListProps {
   todoStore: TodoStore;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ todoStore }) => {
+const TodoList: React.FC<TodoListProps> = observer(({ todoStore }) => {
   const [value, setValue] = useState<string>('');
   return (
     <div>
-
+      <input
+        value={value}
+        onChange={event => {
+          setValue(event.target.value)
+        }}
+        type='text'
+      />
+      <button
+        onClick={() => {
+          if (value) {
+            todoStore.addTodo(value)
+          }
+          setValue('');
+        }}
+      >
+        Add
+      </button>
     </div>
   )
-}
+})
 
 export default TodoList
