@@ -27,6 +27,8 @@ const TodoList: React.FC<TodoListProps> = observer(({ todoStore }) => {
       >
         Add
       </button>
+      <div>Completed: {todoStore.status.completed}</div>
+      <div>Remaining: {todoStore.status.remaining}</div>
       <ul>
         {todoStore.todos.map(todo => {
           return (
