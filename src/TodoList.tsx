@@ -34,6 +34,9 @@ const TodoList: React.FC<TodoListProps> = observer(({ todoStore }) => {
           return (
             <li
               key={todo.id}
+              onClick={() => {
+                todoStore.toggleTodo(todo.id)
+              }}
             >
               {todo.title} [{todo.completed ? 'x' : ' '}]
             </li>
