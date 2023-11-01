@@ -1,6 +1,6 @@
+import { observer } from 'mobx-react';
 import React, { useState } from 'react'
 import TodoStore from './TodoStore'
-import { observer } from 'mobx-react';
 
 interface TodoListProps {
   todoStore: TodoStore;
@@ -27,6 +27,17 @@ const TodoList: React.FC<TodoListProps> = observer(({ todoStore }) => {
       >
         Add
       </button>
+      <ul>
+        {todoStore.todos.map(todo => {
+          return (
+            <li
+              key={todo.id}
+            >
+              {todo.title} [{todo.completed ? 'x' : ' '}]
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 })
